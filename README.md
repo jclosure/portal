@@ -24,9 +24,10 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Usage
 
-    Beaming between 2 supervised processes
+### Beaming between 2 supervised processes
 
-    Host 1:
+  1. Host1:
+
     ```sh
     iex -sname room1 --cookie secret -S mix
     ```
@@ -36,7 +37,14 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     Portal.Door.get(:blue)
     ```
 
-    Host 2:
+    ```elixir
+    def application do
+      [applications: [:portal]]
+    end
+    ```
+
+  2. Host2:
+
     ```sh
     iex -sname room2 --cookie secret -S mix
     ```
@@ -44,20 +52,14 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     ```elixir
     Portal.shoot(:orange)
     Portal.Door.get(:orange)
-
-```
-
-```
-
     blue = {:blue, :"room1@joelholder"}
     orange = {:orange, :"room2@joelholder"}
-
     portal = Portal.transfer(blue, orange, [1,2,3,4])
-
     Portal.Door.get(:orange)
     ```
 
-    Host 1:
+  3. Host1:
+
     ```elixir
     Portal.Door.get(:blue)
     ```
