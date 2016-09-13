@@ -29,7 +29,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   1. Host1:
 
     ```sh
-    iex -sname room1 --cookie secret -S mix
+    $ iex -sname room1 --cookie secret -S mix
     ```
 
     ```elixir
@@ -46,7 +46,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   2. Host2:
 
     ```sh
-    iex -sname room2 --cookie secret -S mix
+    $ iex -sname room2 --cookie secret -S mix
     ```
 
     ```elixir
